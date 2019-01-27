@@ -45,7 +45,7 @@ public class TimerActivity extends Activity {
                 continue;
             int time = timer.getTime();
             if (time != 0) {
-                timeView.setText(secondsToMinutes(time));
+                timeView.setText(msecondsToMinutes(time));
                 return;
             }
         }
@@ -69,9 +69,9 @@ public class TimerActivity extends Activity {
 
     }
 
-    private String secondsToMinutes(int seconds) {
-        int min = seconds / 60;
-        int sec = seconds % 60;
+    private String msecondsToMinutes(int seconds) {
+        int min = seconds / (60 );
+        int sec = seconds % (60 );
 
         String minS = Integer.toString(min);
         String secS = Integer.toString(sec);
