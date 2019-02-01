@@ -82,7 +82,7 @@ public class TimerTalker {
             inStream.reset();
             sendData(0);
             while (inStream.available() == 0) {
-                //arduino should send a message back as some form of an ack, possible just zero again, so we wait for it
+                //arduino should send a message back as some form of an ack, possible just zero again but content isnt checked, so we wait for it
             }
             activated = true;
         } catch (IOException e) {
@@ -152,7 +152,6 @@ public class TimerTalker {
         });
         ((Activity) context).finish();
 
-//TODO sad cant do because in runnable i think
     }
 
     private void sendData(int message) {

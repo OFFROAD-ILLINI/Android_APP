@@ -54,8 +54,9 @@ public class PairActivity extends Activity
             Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(turnBTon,1);
         }
-
-        pairedDevicesList();
+        else {
+            pairedDevicesList();
+        }
 
     }
 
