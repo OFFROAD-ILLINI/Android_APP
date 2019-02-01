@@ -1,10 +1,12 @@
 package illini.offroad.bajatimer;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -135,9 +137,21 @@ public class TimerTalker {
     }
 
     private void errorExit(String title, String message) {
-//        Toast msg = Toast.makeText(context,
-//                title + " - " + message, Toast.LENGTH_SHORT);
-//        msg.show();
+/*        ((Activity) context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast msg = Toast.makeText(context,
+                title + " - " + message, Toast.LENGTH_SHORT);
+                msg.show();
+            }
+        });*/
+        ((Activity) context).runOnUiThread(() -> {
+            Toast msg = Toast.makeText(context,
+                    title + " - " + message, Toast.LENGTH_SHORT);
+            msg.show();
+        });
+        ((Activity) context).finish();
+
 //TODO sad cant do because in runnable i think
     }
 
