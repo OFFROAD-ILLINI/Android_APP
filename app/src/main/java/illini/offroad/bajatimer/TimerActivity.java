@@ -15,6 +15,7 @@ public class TimerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
         button = findViewById(R.id.activator);
@@ -24,14 +25,11 @@ public class TimerActivity extends Activity {
         String address = intent.getStringExtra(PairActivity.EXTRA_ADDRESS); //receive the address of the bluetooth device
         timer = new TimerTalker(this, address);
 
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-
     }
 
     @Override
@@ -39,6 +37,7 @@ public class TimerActivity extends Activity {
         super.onPause();
         timer.pause();
     }
+
     public void getTime() {
         while (true) {
             if (!timer.isActivated())
